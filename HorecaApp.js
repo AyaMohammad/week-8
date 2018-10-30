@@ -5,51 +5,48 @@ const wijn = 3.50;
 var aantalFris = 0;
 var aantalBier = 0;
 var aantalWijn = 0;
-
+ 
 var totaalFris = 0;
 var totaalBier = 0;
 var totaalWijn = 0;
 
 var totaalPrijs = 0;
 
-
-function voegNaarscherm() {
-    var keuze = prompt('Place Order kies uit:   firs, bier, wijn of stop');//prompt asks for a drink
+function addToOrder() {
+    var keuze = prompt('Place Order kies uit:   firs, bier of wijn');//prompt asks for a drink
     if (keuze == "fris") {
         aantalFris = parseInt(prompt('Voer het aantal Fris in dat je wilt bestellen.')); //prompt asks the amound of drinks
         console.log(aantalFris);
-        document.write("Fris:  " + aantalFris + " =" + "<br>");
-        document.write( aantalFris * fris + " €" + "<br><hr><p>");
+        document.write("Fris:  " + aantalFris + "<br>");
+        document.write("€" + aantalFris * fris + "<br><hr><p>");
         totaalFris = aantalFris * fris; //calculates the total price and stores it in a 'Var' called 'totaalFris'
-        voegNaarscherm();
+        addToOrder();
     }
-
-    else if (keuze == "bier") {
+     else if (keuze == "bier") {
         aantalBier = parseInt(prompt('Voer het aantal Bier in dat je wilt bestellen.')); //prompt asks the amound of drinks
         console.log(aantalBier);
-        document.write("Bier:  " + aantalBier + " =" +  "<br>"); 
-        document.write("€" + aantalBier * bier + " €" +  "<br><hr><p>");
+        document.write("Bier:  " + aantalBier + "<br>"); 
+        document.write("€" + aantalBier * bier + "<br><hr><p>");
         totaalBier = aantalBier * bier; //calculates the total price and stores it in a 'Var' called 'totaalBier'
-        voegNaarscherm();
+        addToOrder();
     }
     else if (keuze == "wijn") {
         aantalWijn = parseInt(prompt('Voer het aantal Wijn in dat je wilt bestellen.'));//prompt asks the amound of drinks
         console.log(aantalWijn);
-        document.write("Wijn:  " + aantalWijn + " =" +  "<br>");
-        document.write(aantalWijn * wijn + " €" +  "<br><hr><p>");
+        document.write("Wijn:  " + aantalWijn + "<br>");
+        document.write("€" + aantalWijn * wijn + "<br><hr><p>");
         totaalWijn = aantalWijn * wijn; //calculates the total price and stores it in a 'Var' called 'totaalWijn'
-        voegNaarscherm();
+        addToOrder();
     }
     else if (keuze == "stop" || keuze == "nee") { //interrupts the program with the word 'stop' or 'nee'
         alert("bestelling is geplaatst.");
         totaalPrijs = totaalFris + totaalBier + totaalWijn; //calculated the total amount
         document.write("<hr>");
-        document.write(totaalPrijs + " €"); //writes the total
+        document.write("€" + totaalPrijs); //writes the total
     }
     else {
         alert("Uw kan dit niet bestellen.");
-        voegNaarscherm();
+        addToOrder();
     }
 }
-
-voegNaarscherm();
+ addToOrder();
