@@ -1,4 +1,95 @@
 body{
-	background-color: red;
-	margin: auto;
+    background-image: url(th.jpg);
+    background-size: cover;
+    border: 
+}
+
+.grid-container {
+  display: grid;
+  padding: 10px;
+}
+.item {
+     border:3px;
+ }
+.logo {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    background-color:  #F2F2F2;
+}
+
+.menu {
+    grid-column: 2 / 5;
+    background-color: #F2F2F2;
+    padding-left: 10px;
+    height: 90px
+
+}
+
+.menu h1{
+    font-size: 30px;
+    line-height: 1px;
+    color: black;
+    float: left;
+    padding-left: 240px;
+}
+
+
+.footermenu {
+    grid-column: 1 / 5;
+    grid-row: 2;
+    height: 15px;
+    background-color: black;
+}
+
+.container{
+    grid-column: center;
+    grid-row: 3 / 5 ;
+    background-image: url(th1.jpg);
+    background-size: cover;
+}
+
+.menukaart {
+    border: 3px double #F2F2F2;
+    border-width: 9px;
+    height: auto;
+    width: 400px;
+    margin: auto auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+.menukaart p{
+    text-align: center;
+    color: red;
+    font-size: 25px;
+    line-height: 45px;
+}
+
+h1 {
+    font-size: 40px;
+
+    color: black;
+    text-align: center;
+    padding: 25px;
+}
+
+h2 {
+    color: #F2F2F2;
+    text-align: center;
+    padding: 25px;
+}
+
+ul li{
+    text-align: center;
+}
+.bestel{
+    float: left;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 135px;
+}
+
+.bestel:hover{
+    color: red;
 }

@@ -1,13 +1,50 @@
-<!doctype <!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html lang="nl">
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Horeca App</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="screen" href="HorecaApp.css" />
-	<script src="HorecaApp.js"></script>
+  <meta charset="utf-8">
+
+  <title>UandGo café</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="HorecaApp.css">
+
 </head>
-<body style=" background-image: url(th.jpg); background-size: cover; ">
+
+<body>
+    <div class="grid-container">
+        <div class="item logo">
+            <img src="logoo.jpg" width="90" height="80">
+        </div>
+        <div class="item menu">
+            <h1 class="menu">Bestellen</h1>
+        </div>
+        <div class="item footermenu"></div>
+        <div class="container">
+            <div class="item menukaart">
+                <h1> Menu </h1>
+                <h2> Dranken </h2>
+                    <p> Fris: €2,50</p>
+                    <p> Bier: €3,50 </p>
+                    <p> Wijn: €4,50 </p>
+                <h2> Bitterganituurschaal </h2>
+                    <p>schaal van 8: €6,50</p>
+                    <p>schaal van 16: €12,-</p>
+                    
+                <h1> bestellingen </h1>
+                    <p id="Fris"></p> 
+                    <p id="Bier"></p>
+                    <p id="Wijn"></p>
+                    <p id="schaal van 8"></p>
+                    <p id="schaal van 16"></p>
+                    <br>
+
+                <h1> Totaal</h1>
+                    <p id="totaal"></p>
+ 
+            </div>
+        </div>
+<script src="HorecaApp.js"></script>
 </body>
 </html>

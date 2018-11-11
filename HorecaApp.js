@@ -1,52 +1,100 @@
-const fris = 2.50;
-const bier = 3.00;
-const wijn = 3.50;
+// gemaakt door Aya Mohammad
+
+const prijsFris = 2.50;
+const prijsBier = 3.50;
+const prijsWijn = 4.50;
+const prijsschaal8 = 6.50;
+const prijsschaal16 = 12;
 
 var aantalFris = 0;
 var aantalBier = 0;
 var aantalWijn = 0;
- 
-var totaalFris = 0;
-var totaalBier = 0;
-var totaalWijn = 0;
+var aantalschalenvan8 = 0;
+var aantalschalenvan16 = 0;
 
-var totaalPrijs = 0;
+var prijstotaalFris = 0;
+var prijstotaalBier = 0;
+var prijstotaalWijn = 0;
+var prijstotaalSchaal8 = 0;
+var prijstotaalSchaal16 = 0;
 
-function addToOrder() {
-    var keuze = prompt('Place Order kies uit:   firs, bier of wijn');//prompt asks for a drink
-    if (keuze == "fris") {
-        aantalFris = parseInt(prompt('Voer het aantal Fris in dat je wilt bestellen.')); //prompt asks the amound of drinks
-        console.log(aantalFris);
-        document.write("Fris:  " + aantalFris + "<br>");
-        document.write("€" + aantalFris * fris + "<br><hr><p>");
-        totaalFris = aantalFris * fris; //calculates the total price and stores it in a 'Var' called 'totaalFris'
-        addToOrder();
-    }
-     else if (keuze == "bier") {
-        aantalBier = parseInt(prompt('Voer het aantal Bier in dat je wilt bestellen.')); //prompt asks the amound of drinks
-        console.log(aantalBier);
-        document.write("Bier:  " + aantalBier + "<br>"); 
-        document.write("€" + aantalBier * bier + "<br><hr><p>");
-        totaalBier = aantalBier * bier; //calculates the total price and stores it in a 'Var' called 'totaalBier'
-        addToOrder();
-    }
-    else if (keuze == "wijn") {
-        aantalWijn = parseInt(prompt('Voer het aantal Wijn in dat je wilt bestellen.'));//prompt asks the amound of drinks
-        console.log(aantalWijn);
-        document.write("Wijn:  " + aantalWijn + "<br>");
-        document.write("€" + aantalWijn * wijn + "<br><hr><p>");
-        totaalWijn = aantalWijn * wijn; //calculates the total price and stores it in a 'Var' called 'totaalWijn'
-        addToOrder();
-    }
-    else if (keuze == "stop" || keuze == "nee") { //interrupts the program with the word 'stop' or 'nee'
-        alert("bestelling is geplaatst.");
-        totaalPrijs = totaalFris + totaalBier + totaalWijn; //calculated the total amount
-        document.write("<hr>");
-        document.write("€" + totaalPrijs); //writes the total
-    }
-    else {
-        alert("Uw kan dit niet bestellen.");
-        addToOrder();
-    }
+
+//maak een berekening bij het aantal
+function calculate(){
+    prijstotaalFris = prijsFris * aantalFris;
+    prijstotaalBier = prijsBier * aantalBier;
+    prijstotaalWijn = prijsWijn * aantalWijn;
+    prijstotaalSchaal8 = prijsschaal8 * aantalschalenvan8;
+    prijstotaalSchaal16 = prijsschaal16 * aantalschalenvan16;
+    console.log('PrijstotaalFris ' + prijstotaalFris);
+    console.log('PrijstotaalBier ' + prijstotaalBier);
+    console.log('PrijstotaalWijn ' + prijstotaalWijn);
+    console.log('PrijstotaalSchaal8 ' + prijstotaalSchaal8);
+    console.log('PrijstotaalSchaal16 ' + prijstotaalSchaal16);
 }
- addToOrder();
+
+// telt alle berekeningen bij elkaar op
+function Prijstotaal(){
+    prijstotaal = prijstotaalFris + prijstotaalBier + prijstotaalWijn + prijstotaalSchaal8 + prijstotaalSchaal16;
+    console.log('Prijstotaal' + prijstotaal);
+    calculate();
+    document.getElementById('totaal').innerHTML = ('Het eind prijs is : ' + prijstotaal );
+}
+while (keuze != 'stop'){
+// maakt de bestelling over drank
+    var keuze = prompt("Kies tussen fris, bier, wijn of snack (stop).");
+
+    if (keuze == "fris") {
+        input = parseInt(prompt("kies hoeveel glazen " + keuze + " uw wilt."));
+        aantalFris= aantalFris + input;
+        console.log('aantalFris: ' + aantalFris);
+        calculate();
+        document.getElementById('Fris').innerHTML = (aantalFris + 'x' + " Fris = "+ "€"+prijstotaalFris);
+
+    }else if (keuze == "bier") {
+        input = parseInt(prompt("kies hoeveel glazen " + keuze + " uw wilt."));
+        aantalBier= aantalBier + input;
+        console.log('aantalBier: '+ aantalBier);    
+        calculate();
+        document.getElementById('Bier').innerHTML = (aantalBier + 'x' + " Bier = "+ "€"+ prijstotaalBier);
+        
+        }
+     else if (keuze== 'wijn') {
+        aantalWijn = parseInt(prompt("kies hoeveel glazen " + keuze + " uw wilt."));
+        aantalWijn= aantalWijn + input;
+        console.log('aantalWijn: ' + aantalWijn);
+        calculate();
+        document.getElementById('Wijn').innerHTML = (aantalWijn + 'x' + " Wijn = " + "€"+prijstotaalWijn);
+        
+     }else if (keuze== 'snack'){
+        // maakt de bestelling over eten
+            var keuze = prompt("Kies tussen 2 bitterbalschalen.","van 8 of van 16 of drank (stop)");
+    
+            if (keuze == "van 8"){
+                input = parseInt(prompt("kies hoeveel schalen " + keuze + " uw wilt."));
+                aantalschalenvan8= aantalschalenvan8 + input;
+                console.log('aantalschalenvan8: ' + aantalschalenvan8);
+                calculate();
+                document.getElementById('schaal van 8').innerHTML = ('<br>' + aantalschalenvan8 + 'x' + " schaal van 8 = "+ "€"+prijstotaalSchaal8);
+            }else if (keuze == "van 16"){
+                input = parseInt(prompt("kies hoeveel schalen " + keuze + " uw wilt."));
+                aantalschalenvan16= aantalschalenvan16 + input;
+                console.log('aantalschalenvan16: '+ aantalschalenvan16);    
+                calculate();
+                document.getElementById('schaal van 16').innerHTML = (aantalschalenvan16 + 'x' + " schaal van 16 = "+ "€"+ prijstotaalSchaal16);
+            }else if (keuze == 'stop'){
+                Prijstotaal();
+                document.getElementById('totaal').innerHTML = ('Rekening:'+'<br>'+ '€'+prijstotaal);
+            }else{
+                alert('Wij hebben geen ' + keuze + '!!');
+            }
+
+     }else if (keuze == 'stop'){
+        Prijstotaal();
+        
+     }else{
+        alert('Wij hebben geen ' + keuze + '!!');   
+     }
+}
+
+
