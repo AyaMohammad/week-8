@@ -35,11 +35,17 @@ function calculate(){
 
 // telt alle berekeningen bij elkaar op
 function Prijstotaal(){
+    calculate();
     prijstotaal = prijstotaalFris + prijstotaalBier + prijstotaalWijn + prijstotaalSchaal8 + prijstotaalSchaal16;
     console.log('Prijstotaal' + prijstotaal);
-    calculate();
-    document.getElementById('totaal').innerHTML = ('Het eind prijs is : ' + prijstotaal );
+    document.getElementById('totaal').innerHTML = ('De eind prijs is : ' + prijstotaal );
+    document.getElementById('Fris').innerHTML = (aantalFris + 'x' + " Fris = "+ "€"+prijstotaalFris);
+    document.getElementById('Bier').innerHTML = (aantalBier + 'x' + " Bier = "+ "€"+ prijstotaalBier);
+    document.getElementById('Wijn').innerHTML = (aantalWijn + 'x' + " Wijn = " + "€"+prijstotaalWijn);
+    document.getElementById('schaal van 8').innerHTML = ('<br>' + aantalschalenvan8 + 'x' + " schaal van 8 = "+ "€"+prijstotaalSchaal8);
+    document.getElementById('schaal van 16').innerHTML = (aantalschalenvan16 + 'x' + " schaal van 16 = "+ "€"+ prijstotaalSchaal16);
 }
+
 while (keuze != 'stop'){
 // maakt de bestelling over drank
     var keuze = prompt("Kies tussen fris, bier, wijn of snack (stop).");
@@ -48,23 +54,16 @@ while (keuze != 'stop'){
         input = parseInt(prompt("kies hoeveel glazen " + keuze + " uw wilt."));
         aantalFris= aantalFris + input;
         console.log('aantalFris: ' + aantalFris);
-        calculate();
-        document.getElementById('Fris').innerHTML = (aantalFris + 'x' + " Fris = "+ "€"+prijstotaalFris);
 
     }else if (keuze == "bier") {
         input = parseInt(prompt("kies hoeveel glazen " + keuze + " uw wilt."));
         aantalBier= aantalBier + input;
-        console.log('aantalBier: '+ aantalBier);    
-        calculate();
-        document.getElementById('Bier').innerHTML = (aantalBier + 'x' + " Bier = "+ "€"+ prijstotaalBier);
-        
+        console.log('aantalBier: '+ aantalBier);            
         }
      else if (keuze== 'wijn') {
-        aantalWijn = parseInt(prompt("kies hoeveel glazen " + keuze + " uw wilt."));
+        input = parseInt(prompt("kies hoeveel glazen " + keuze + " uw wilt."));
         aantalWijn= aantalWijn + input;
         console.log('aantalWijn: ' + aantalWijn);
-        calculate();
-        document.getElementById('Wijn').innerHTML = (aantalWijn + 'x' + " Wijn = " + "€"+prijstotaalWijn);
         
      }else if (keuze== 'snack'){
         // maakt de bestelling over eten
@@ -74,14 +73,10 @@ while (keuze != 'stop'){
                 input = parseInt(prompt("kies hoeveel schalen " + keuze + " uw wilt."));
                 aantalschalenvan8= aantalschalenvan8 + input;
                 console.log('aantalschalenvan8: ' + aantalschalenvan8);
-                calculate();
-                document.getElementById('schaal van 8').innerHTML = ('<br>' + aantalschalenvan8 + 'x' + " schaal van 8 = "+ "€"+prijstotaalSchaal8);
             }else if (keuze == "van 16"){
                 input = parseInt(prompt("kies hoeveel schalen " + keuze + " uw wilt."));
                 aantalschalenvan16= aantalschalenvan16 + input;
-                console.log('aantalschalenvan16: '+ aantalschalenvan16);    
-                calculate();
-                document.getElementById('schaal van 16').innerHTML = (aantalschalenvan16 + 'x' + " schaal van 16 = "+ "€"+ prijstotaalSchaal16);
+                console.log('aantalschalenvan16: '+ aantalschalenvan16);
             }else if (keuze == 'stop'){
                 Prijstotaal();
                 document.getElementById('totaal').innerHTML = ('Rekening:'+'<br>'+ '€'+prijstotaal);
